@@ -1,0 +1,859 @@
+/* ===== リセット & 共通スタイル ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== サイトコンテナ ===== */
+.site-container {
+  display: none;
+  min-height: 100vh;
+}
+
+.site-container.active {
+  display: block;
+}
+
+/* ===== 表サイト: 学習プラットフォーム ===== */
+#front-site {
+  background: #f5f7fa;
+}
+
+.learning-header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 20px 0;
+}
+
+.learning-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.learning-header h1 {
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.learning-header h1 span {
+  color: #3498db;
+}
+
+.learning-header nav {
+  display: flex;
+  gap: 30px;
+}
+
+.learning-header nav a {
+  color: #7f8c8d;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.learning-header nav a:hover {
+  color: #3498db;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.courses {
+  padding: 80px 20px;
+}
+
+.courses h3 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #2c3e50;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+}
+
+.course-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.course-card h4 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.course-card p {
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.learning-footer {
+  background: #2c3e50;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.keyboard-hint {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.keyboard-hint kbd {
+  background: rgba(255,255,255,0.1);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin: 0 2px;
+}
+
+
+/* ===== 裏サイト: テトリスゲーム ===== */
+#back-site {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ===== 認証画面 ===== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-box {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.app-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #ecf0f1;
+  color: #7f8c8d;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.auth-tab.active {
+  background: #3498db;
+  color: white;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ===== ロビー画面 ===== */
+.lobby-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.lobby-header {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-icon {
+  font-size: 32px;
+}
+
+.icon-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.icon-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: rotate(90deg);
+}
+
+.lobby-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 968px) {
+  .lobby-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matchmaking-panel,
+.friends-panel {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.matchmaking-panel h2,
+.friends-panel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.matchmaking-option {
+  display: none;
+}
+
+.matchmaking-option.active {
+  display: block;
+}
+
+.btn-large {
+  padding: 20px 40px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.queue-status {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.party-info {
+  margin-bottom: 20px;
+}
+
+.party-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.party-members {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.party-member {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.member-icon {
+  font-size: 24px;
+}
+
+.member-nickname {
+  flex: 1;
+  font-weight: 600;
+}
+
+.leader-badge {
+  font-size: 20px;
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.friends-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.friend-icon {
+  font-size: 28px;
+}
+
+.friend-nickname {
+  flex: 1;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.empty-message {
+  text-align: center;
+  color: #95a5a6;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+/* ===== 設定モーダル ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.settings-content {
+  padding: 30px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #95a5a6;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #2c3e50;
+}
+
+.settings-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.settings-tab {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #7f8c8d;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.settings-tab.active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+.settings-tab-content {
+  display: none;
+}
+
+.settings-tab-content.active {
+  display: block;
+}
+
+.settings-tab-content h3 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.profile-section .form-group {
+  margin-bottom: 20px;
+}
+
+.profile-section .form-group input[readonly] {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.icon-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.icon-option {
+  padding: 15px;
+  border: 3px solid #ecf0f1;
+  background: white;
+  border-radius: 10px;
+  font-size: 32px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.icon-option:hover {
+  border-color: #3498db;
+  transform: scale(1.1);
+}
+
+.icon-option.selected {
+  border-color: #3498db;
+  background: #ebf5fb;
+}
+
+.friend-search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.friend-search input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.friend-search input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.requests-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.friend-request-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ===== 通知 ===== */
+.notification {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 2000;
+  max-width: 400px;
+  animation: slideIn 0.3s;
+}
+
+.notification.active {
+  display: block;
+}
+
+.notification p {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.notification button {
+  margin-right: 10px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== トースト通知 ===== */
+.toast-notification {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #2ecc71;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  z-index: 3000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s;
+}
+
+.toast-notification.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-notification.error {
+  background: #e74c3c;
+}
+
+/* ===== 秘密ヒント ===== */
+.secret-hint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.secret-hint.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.secret-hint .hint-content {
+  text-align: center;
+}
+
+.secret-hint .hint-content p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.secret-hint .hint-content p:first-child {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.secret-hint kbd {
+  background: rgba(255,255,255,0.2);
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  display: inline-block;
+  margin: 0 3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.secret-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-left: 20px;
+}
+
+.secret-btn:hover {
+  transform: scale(1.3) rotate(15deg);
+}
+
+
+/* ===== スクロールバー ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdc3c7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lobby-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-tabs {
+    flex-direction: column;
+  }
+  
+  .icon-selector {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== ヒント表示 ===== */
+.secret-hint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-align: center;
+}
+
+.secret-hint.show {
+  opacity: 1;
+}
+
+.hint-content p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.hint-content kbd {
+  background: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  font-family: monospace;
+  font-size: 14px;
+}
