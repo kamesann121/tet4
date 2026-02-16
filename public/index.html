@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学習プラットフォーム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 表サイト: 学習サイト風 -->
+    <div id="front-site" class="site-container active">
+        <header class="learning-header">
+            <div class="container">
+                <h1>📚 Learn<span>Hub</span></h1>
+                <nav>
+                    <a href="#courses">コース</a>
+                    <a href="#about">概要</a>
+                    <a href="#contact">お問い合わせ</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="learning-main">
+            <section class="hero">
+                <div class="container">
+                    <h2>あなたの学びを加速する</h2>
+                    <p>プログラミング、デザイン、ビジネススキルまで<br>豊富なコースで学習しましょう</p>
+                    <button class="cta-button">無料で始める</button>
+                </div>
+            </section>
+
+            <section id="courses" class="courses">
+                <div class="container">
+                    <h3>人気のコース</h3>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-icon">💻</div>
+                            <h4>Web開発入門</h4>
+                            <p>HTML, CSS, JavaScriptの基礎</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">🎨</div>
+                            <h4>UI/UXデザイン</h4>
+                            <p>美しいインターフェース設計</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-icon">📊</div>
+                            <h4>データ分析</h4>
+                            <p>Pythonでデータを読み解く</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="learning-footer">
+            <div class="container">
+                <p>&copy; 2026 LearnHub. All rights reserved.</p>
+                <p class="keyboard-hint">
+                    💡 <strong>秘密のショートカット:</strong> 
+                    <kbd>Ctrl</kbd> + <kbd>Q</kbd> または 
+                    <kbd>Ctrl</kbd> + <kbd>1</kbd>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 裏サイト: SecureHub システム -->
+    <div id="back-site" class="site-container">
+        <!-- 認証画面 -->
+        <div id="auth-screen" class="screen active">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h1 class="app-title">🔐 SecureHub</h1>
+                    
+                    <div class="auth-tabs">
+                        <button class="auth-tab" data-tab="login">ログイン</button>
+                        <button class="auth-tab active" data-tab="register">アカウント作成</button>
+                    </div>
+
+                    <!-- ログインフォーム -->
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label>ニックネーム</label>
+                            <input type="text" id="login-nickname" placeholder="ニックネームを入力" required>
+                        </div>
+                        <div class="form-group">
+                            <label>パスワード</label>
+                            <input type="password" id="login-password" placeholder="パスワードを入力" required>
+                        </div>
+                        <button type="submit" class="btn-primary">ログイン</button>
+                        <div id="login-error" class="error-message"></div>
+                    </form>
+
+                    <!-- 登録フォーム -->
+                    <form id="register-form" class="auth-form active">
+                        <div class="form-group">
+                            <label>ニックネーム</label>
+                            <input type="text" id="register-nickname" placeholder="ニックネームを入力" required>
+                        </div>
+                        <div class="form-group">
+                            <label>パスワード</label>
+                            <input type="password" id="register-password" placeholder="パスワードを入力" required>
+                        </div>
+                        <button type="submit" class="btn-primary">アカウント作成</button>
+                        <div id="register-error" class="error-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ロビー画面 -->
+        <div id="lobby-screen" class="screen">
+            <div class="lobby-container">
+                <!-- ヘッダー -->
+                <header class="lobby-header">
+                    <div class="user-info">
+                        <span class="user-icon" id="user-icon">🔵</span>
+                        <span class="user-nickname" id="user-nickname">Player</span>
+                    </div>
+                    <button id="settings-btn" class="icon-btn">⚙️</button>
+                </header>
+
+                <!-- メインコンテンツ -->
+                <div class="lobby-content">
+                    <!-- 左側: マッチメイキング -->
+                    <div class="lobby-left">
+                        <div class="matchmaking-panel">
+                            <h2>セッション検索</h2>
+                            <div id="solo-matchmaking" class="matchmaking-option active">
+                                <button id="solo-queue-btn" class="btn-primary btn-large">
+                                    🔍 ランダムセッションに参加
+                                </button>
+                                <div id="solo-queue-status" class="queue-status"></div>
+                            </div>
+                            <div id="party-matchmaking" class="matchmaking-option">
+                                <div class="party-info" id="party-info">
+                                    <h3>グループメンバー</h3>
+                                    <div id="party-members" class="party-members"></div>
+                                    <button id="party-leave-btn" class="btn-secondary">グループから退出</button>
+                                </div>
+                                <button id="party-queue-btn" class="btn-primary btn-large">
+                                    👥 グループセッションに参加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側: フレンドリスト -->
+                    <div class="lobby-right">
+                        <div class="friends-panel">
+                            <h2>フレンド</h2>
+                            <div id="friends-list" class="friends-list">
+                                <p class="empty-message">フレンドがいません</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 設定モーダル -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content settings-content">
+                <button class="modal-close" id="settings-close">&times;</button>
+                
+                <div class="settings-tabs">
+                    <button class="settings-tab active" data-tab="profile">プロフィール</button>
+                    <button class="settings-tab" data-tab="friend-request">フレンド申請</button>
+                    <button class="settings-tab" data-tab="friend-received">フレンド受信</button>
+                </div>
+
+                <!-- プロフィールタブ -->
+                <div id="profile-tab" class="settings-tab-content active">
+                    <h3>プロフィール設定</h3>
+                    <div class="profile-section">
+                        <div class="form-group">
+                            <label>UID</label>
+                            <input type="text" id="profile-uid" readonly>
+                            <button id="copy-uid-btn" class="btn-secondary btn-small">📋 コピー</button>
+                        </div>
+                        <div class="form-group">
+                            <label>ニックネーム</label>
+                            <input type="text" id="profile-nickname" placeholder="新しいニックネーム">
+                        </div>
+                        <div class="form-group">
+                            <label>アイコン</label>
+                            <div class="icon-selector">
+                                <button class="icon-option" data-icon="🔴">🔴</button>
+                                <button class="icon-option" data-icon="🟠">🟠</button>
+                                <button class="icon-option" data-icon="🟡">🟡</button>
+                                <button class="icon-option" data-icon="🟢">🟢</button>
+                                <button class="icon-option" data-icon="🔵">🔵</button>
+                                <button class="icon-option" data-icon="🟣">🟣</button>
+                                <button class="icon-option" data-icon="🟤">🟤</button>
+                                <button class="icon-option" data-icon="⚫">⚫</button>
+                            </div>
+                        </div>
+                        <button id="save-profile-btn" class="btn-primary">保存</button>
+                        <button id="logout-btn" class="btn-danger">ログアウト</button>
+                    </div>
+                </div>
+
+                <!-- フレンド申請タブ -->
+                <div id="friend-request-tab" class="settings-tab-content">
+                    <h3>フレンド申請</h3>
+                    <div class="friend-search">
+                        <input type="text" id="friend-search-input" placeholder="ニックネーム または UID を入力">
+                        <button id="friend-search-btn" class="btn-primary">検索して申請</button>
+                    </div>
+                    <div id="friend-search-result" class="search-result"></div>
+                </div>
+
+                <!-- フレンド受信タブ -->
+                <div id="friend-received-tab" class="settings-tab-content">
+                    <h3>受信したフレンド申請</h3>
+                    <div id="friend-requests-list" class="requests-list">
+                        <p class="empty-message">受信した申請はありません</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- グループ招待通知 -->
+        <div id="party-invite-notification" class="notification">
+            <p><strong id="invite-from"></strong> からグループに招待されました</p>
+            <button id="accept-party-btn" class="btn-primary btn-small">参加</button>
+            <button id="decline-party-btn" class="btn-secondary btn-small">拒否</button>
+        </div>
+    </div>
+
+    <script src="fingerprint.js"></script>
+    <script src="app.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
